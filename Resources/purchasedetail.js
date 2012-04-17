@@ -38,13 +38,14 @@ function loadItem()
 	itemListLoad.onerror = function() {
 	    alert('Error Getting List ...');
 	};
+	//itemListLoad.open('GET','http://www.repostro.com:7000/purchase_order_items.json');
 	itemListLoad.open('GET','http://www.repostro.com:7000/purchase_order_items.json');
 	itemListLoad.onload = function() 
 	{
 		var itemList = JSON.parse(this.responseText);
 		for (var i = 0; i < itemList.length; i++)
 		{
-			var row = Titanium.UI.createTableViewRow({title:itemList[i].name, height:'auto'});
+			var row = Titanium.UI.createTableViewRow({title:itemList[i].code+' '+itemList[i].name, height:'auto'});
 			rowData[i] = row;
 		}
 		var tableView = Titanium.UI.createTableView({height:'88%', top:'20%', bottom:'30%', data:rowData});
