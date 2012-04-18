@@ -26,14 +26,15 @@ function load()
 		var routeList = JSON.parse(this.responseText);
 		for (var i = 0; i < routeList.length; i++)
 		{
-			var row = Titanium.UI.createTableViewRow({id:routeList[i].customer_id, title:routeList[i].id+'. '+routeList[i].customer_name, link:'purchase.js', height:'auto', rightImage:'order.png'});
+			var row = Titanium.UI.createTableViewRow({sales_id:routeList[i].salesman_id, cust_id:routeList[i].customer_id, title:routeList[i].id+'. '+routeList[i].customer_name, link:'purchase.js', height:'auto', rightImage:'order.png'});
 			rowData[i] = row;
 		}
 		var tableView = Titanium.UI.createTableView({top:'14%', data:rowData});
 		tableView.addEventListener('click', function(e){
 			if (e.rowData.link)
 			{
-				Titanium.App.Properties.setString('customerID', e.rowData.id);
+				Titanium.App.Properties.setString('customerID', e.row.cust_id);
+				Titanium.App.Properties.setString('salesmanID', e.row.sales_id);
 				Titanium.include(e.rowData.link);
 			}
 		});

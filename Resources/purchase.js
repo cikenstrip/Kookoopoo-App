@@ -88,10 +88,10 @@ btnPO.addEventListener('click',function()
 	xhr.open("POST", xhrURL);	
 	xhr.setRequestHeader("enctype", "multipart/form-data");
 	var param={
-		"purchaseorder[customer_id]":1,
+		"purchaseorder[customer_id]":Ti.App.Properties.getString('customerID'),
 		"purchaseorder[purchasedate]":timeCurrent.text,
 		"purchaseorder[purchasenumber]":noPO.value,
-		"purchaseorder[salesmen_id]":1
+		"purchaseorder[salesmen_id]":Ti.App.Properties.getString('salesmanID')
 		};
 	xhr.send(param);
 });

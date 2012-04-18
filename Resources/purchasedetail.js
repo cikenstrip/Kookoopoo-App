@@ -12,7 +12,7 @@ function loadPO()
 	purchaseListLoad.onerror = function() {
 	    alert('Error Getting List ...');
 	};
-	purchaseListLoad.open('GET','http://www.repostro.com:7000/purchaseorders/1.json');
+	purchaseListLoad.open('GET','http://www.repostro.com:7000/purchaseorders/'+Ti.App.Properties.getString('purchaseID')+'.json');
 	purchaseListLoad.onload = function() 
 	{
 		var purchaseList = JSON.parse(this.responseText);

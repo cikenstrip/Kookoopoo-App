@@ -26,11 +26,12 @@ function load()
 		var purchaseList = JSON.parse(this.responseText);
 		for (var i = 0; i < purchaseList.length; i++)
 		{
-			var row = Titanium.UI.createTableViewRow({title:purchaseList[i].purchasenumber, link:'purchasedetail.js', height:'auto', rightImage:'detail.png'});
+			var row = Titanium.UI.createTableViewRow({po_id:purchaseList[i].id, title:purchaseList[i].purchasenumber, link:'purchasedetail.js', height:'auto', rightImage:'detail.png'});
 			rowData[i] = row;
 		}
 		var tableView = Titanium.UI.createTableView({top:'12%', bottom:'15%', data:rowData});
 		tableView.addEventListener('click', function(e){
+			Titanium.App.Properties.setString('purchaseID', e.row.po_id);
 			Titanium.include(e.rowData.link);
 		});
 		polistWin.add(tableView);
