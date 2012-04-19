@@ -39,7 +39,7 @@ function loadItem()
 	    alert('Error Getting List ...');
 	};
 	//itemListLoad.open('GET','http://www.repostro.com:7000/purchase_order_items.json');
-	itemListLoad.open('GET','http://www.repostro.com:7000/purchase_order_items.json');
+	itemListLoad.open('GET','http://192.168.5.24:3000/purchase_order_items.json');
 	itemListLoad.onload = function() 
 	{
 		var itemList = JSON.parse(this.responseText);

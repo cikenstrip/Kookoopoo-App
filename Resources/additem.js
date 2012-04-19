@@ -119,7 +119,7 @@ var xhr = Titanium.Network.createHTTPClient();
 	xhr.open("POST", xhrURL);	
 	xhr.setRequestHeader("enctype", "multipart/form-data");
 	var param={
-		"purchase_order_item[purchase_order_id]":1,
+		"purchase_order_item[purchase_order_id]":Ti.App.Properties.getString('purchaseID'),
 		"purchase_order_item[item_id]":itemVal.value,
 		"purchase_order_item[unit]":unitString,
 		"purchase_order_item[amount]":qty.value
