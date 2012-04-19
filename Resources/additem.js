@@ -6,7 +6,6 @@ var itemWin = Titanium.UI.createWindow({
 function itemLoad()
 {
 	var rowData = [];
-//	var rowData2 = [];
 	var itemListLoad = Titanium.Network.createHTTPClient();
 	itemListLoad.timeout = 10000;
 	itemListLoad.onerror = function() {
