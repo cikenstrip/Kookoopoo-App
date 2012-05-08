@@ -1,7 +1,24 @@
 var mainWin = Titanium.UI.createWindow({
 	title:'Main Menu',
-	backgroundColor:'#fff'
+	fullscreen:true,  
+    navBarHidden:true,
+	backgroundImage:'./k2bg.png'
 });
+
+var viewNavheader = Titanium.UI.createImageView({
+	height:50, width:'100%', top:0,
+	backgroundImage:'./k2navbar.png'
+});
+var btnSync = Titanium.UI.createButton({
+	title:'Sync',
+	top:2, right:5, width:60, height: 40, borderRadius:1, zIndex:4,
+	font:{fontFamily:'Arial',fontWeight:'bold',fontSize:10}
+});
+btnSync.addEventListener('click',function(){
+	Titanium.include('routelist.js');
+});
+mainWin.add(btnSync);
+mainWin.add(viewNavheader);
 
 var btnCallPlan = Titanium.UI.createButton({
 	title:'Call Plan',
